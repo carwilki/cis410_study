@@ -117,7 +117,7 @@ mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 <script>
-window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]],processEscapes:true},svg:{fontCache:"global"},startup:{typeset:true}};
+window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]],processEscapes:true},svg:{fontCache:"global"},startup:{typeset:true,ready(){var S=MathJax.startup;S.pagePromise=new Promise(function(r){if(document.readyState!=="loading"||window.__bodyEnd)return r();document.addEventListener("DOMContentLoaded",r);window.addEventListener("cs410:bodyend",r)});S.defaultReady()}}};
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" id="MathJax-script" async></script>
 
@@ -2519,5 +2519,6 @@ micro: pool all ${12} decisions into one table, then compute (each decision coun
 
 for(const el of document.querySelectorAll(".widget[data-widget]")){const f=W[el.dataset.widget];if(f){try{f(el)}catch(err){el.textContent="Widget failed to load: "+err.message}}}
 </script>
+<script>window.__bodyEnd=true;window.dispatchEvent(new Event("cs410:bodyend"));</script>
 </body>
 </html>
